@@ -15,8 +15,18 @@ import {
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogOverlay, DialogTitle} from '../ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogOverlay, DialogTitle} from '@/components/ui/dialog';
 import { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export default function SidebarHeader() {
 
@@ -61,9 +71,57 @@ export default function SidebarHeader() {
         <DialogOverlay className="bg-red-500 bg-opacity-0" /> {/* Transparent backdrop */}
         <DialogContent className="max-w-lg p-6 bg-white shadow-lg rounded-md" >
           <DialogHeader>
-            <DialogTitle>My Dialog with Transparent Backdrop</DialogTitle>
+            <DialogTitle>New issue</DialogTitle>
           </DialogHeader>
-          <p>The background overlay is fully transparent.</p>
+          <div className="space-y-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="title" className="text-right">
+                Title
+              </Label>
+              <Input id="title" className="col-span-3" />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="description" className="text-right">
+                Description
+              </Label>
+              <Textarea id="description" className="col-span-3" />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="priority" className="text-right">
+              Priority
+            </Label>
+            <Select>
+              <SelectTrigger className="col-span-3">
+                <SelectValue placeholder="Select priority" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="low">Low</SelectItem>
+                <SelectItem value="medium">Medium</SelectItem>
+                <SelectItem value="high">High</SelectItem>
+              </SelectContent>
+            </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="assignee" className="text-right">
+                Assignee
+              </Label>
+              <Select>
+                <SelectTrigger className="col-span-3">
+                  <SelectValue placeholder="Assign to" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="john">John Doe</SelectItem>
+                  <SelectItem value="jane">Jane Smith</SelectItem>
+                  <SelectItem value="bob">Bob Johnson</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button type="submit" onClick={() => setIsOpen(false)}>
+              Create Issue
+            </Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 
