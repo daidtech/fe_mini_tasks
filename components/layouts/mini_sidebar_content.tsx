@@ -7,7 +7,7 @@ import MiniSidebarHeader from "./mini_sidebar_header"
 
 export default function MiniSidebarContent(){
   return (
-    <div className="flex h-screen w-full flex-col border-r transition-all duration-300">
+    <div className="flex w-full flex-col border-r transition-all duration-300">
       <MiniSidebarHeader />
       <div className="flex-1 py-3 pe-3">
         <nav className="space-y-2">
