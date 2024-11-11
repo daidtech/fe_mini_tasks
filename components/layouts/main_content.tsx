@@ -4,8 +4,10 @@ export default function MainContent({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="main-content w-full">
-      {children}
+    <main className="main-content w-full h-full bg-gray-200">
+      <div className="m-4 bg-white h-[calc(100vh-2rem)]">
+        {children}
+      </div>
     </main>
   );
 }
