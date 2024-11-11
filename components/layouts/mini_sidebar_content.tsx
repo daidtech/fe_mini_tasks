@@ -11,11 +11,11 @@ export default function MiniSidebarContent(){
       <MiniSidebarHeader />
       <div className="flex-1 py-3 pe-3">
         <nav className="space-y-2">
-          <a href="#inbox" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
+          <a href="/inbox" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
             <Inbox className="h-4 w-4" />
             <span>Inbox</span>
           </a>
-          <a href="#issues" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
+          <a href="/my-issues" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
             <Layers className="h-4 w-4" />
             <span>My issues</span>
           </a>
