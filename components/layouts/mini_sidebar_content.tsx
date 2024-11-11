@@ -9,7 +9,7 @@ export default function MiniSidebarContent(){
   return (
     <div className="flex h-screen w-full flex-col border-r transition-all duration-300">
       <MiniSidebarHeader />
-      <div className="flex-1 p-4">
+      <div className="flex-1 py-3 pe-3">
         <nav className="space-y-2">
           <a href="#inbox" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
             <Inbox className="h-4 w-4" />
