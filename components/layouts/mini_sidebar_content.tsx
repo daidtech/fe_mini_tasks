@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ChevronDown, Github, Inbox, Layers, LayoutGrid, Plus, Search, Users } from "lucide-react"
+import Link from "next/link"
 
-import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import MiniSidebarHeader from "./mini_sidebar_header"
 
@@ -11,14 +11,14 @@ export default function MiniSidebarContent(){
       <MiniSidebarHeader />
       <div className="flex-1 py-3 pe-3">
         <nav className="space-y-2">
-          <a href="/inbox" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
+          <Link href="/inbox" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
             <Inbox className="h-4 w-4" />
             <span>Inbox</span>
-          </a>
-          <a href="/my-issues" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
+          </Link>
+          <Link href="/my-issues" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
             <Layers className="h-4 w-4" />
             <span>My issues</span>
-          </a>
+          </Link>
         </nav>
 
         <Collapsible>
