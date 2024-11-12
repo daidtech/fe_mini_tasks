@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-import MiniSidebarHeader from "./mini_sidebar_header";
 import MiniSidebarContent from "./mini_sidebar_content";
 
 export default function Sidebar() {
