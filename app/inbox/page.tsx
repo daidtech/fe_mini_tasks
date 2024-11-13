@@ -1,7 +1,7 @@
 
 export default function Inbox() {
   return (
-    <div className="p-5">
+    <div className="px-5">
       Inbox [in development]
     </div>
   )

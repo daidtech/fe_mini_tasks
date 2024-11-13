@@ -1,7 +1,7 @@
 
 export default function Views() {
   return (
-    <div className="p-5">
+    <div className="px-5">
       Views [in development]
     </div>
   )
