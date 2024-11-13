@@ -23,12 +23,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { useSelector } from "react-redux"
-import Task from "@/models/tasks"
+// import { useSelector } from "react-redux"
+// import Task from "@/models/tasks"
 
 export default function Tasks() {
-  const listTasks = useSelector((state: { tasks: { listTasks: Task[] } }) => state.tasks.listTasks);
-  const [activeFilter, setActiveFilter] = useState("all")
+  // const listTasks = useSelector((state: { tasks: { listTasks: Task[] } }) => state.tasks.listTasks);
+  const [, setActiveFilter] = useState("all")
 
   const tasks = [
     {

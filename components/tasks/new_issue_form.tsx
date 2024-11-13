@@ -25,7 +25,7 @@ export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
     setIsOpen(open);
   };
   const dispatch = useDispatch();
-  const [currentTask, setCurrentTask] = useState<Task>({
+  const [currentTask, ] = useState<Task>({
     title: "",
     description: "",
     priority: "",

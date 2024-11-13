@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ChevronDown, Github, Inbox, Layers, LayoutGrid, Plus, Users } from "lucide-react"
+import { ChevronDown, Inbox, Layers, LayoutGrid, Users } from "lucide-react"
 import Link from "next/link"
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
