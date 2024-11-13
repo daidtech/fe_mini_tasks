@@ -28,18 +28,18 @@ export default function MiniSidebarContent(){
           </CollapsibleTrigger>
           <CollapsibleContent>
             <nav className="ml-4 space-y-2">
-              <a href="#projects" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-          <Layers className="h-4 w-4" />
-          <span>Projects</span>
-              </a>
-              <a href="#views" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-          <LayoutGrid className="h-4 w-4" />
-          <span>Views</span>
-              </a>
-              <a href="#teams" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-          <Users className="h-4 w-4" />
-          <span>Teams</span>
-              </a>
+              <Link href="/" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
+                <Layers className="h-4 w-4" />
+                <span>Projects</span>
+              </Link>
+              <Link href="/views" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
+                <LayoutGrid className="h-4 w-4" />
+                <span>Views</span>
+              </Link>
+              <Link href="/teams" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
+                <Users className="h-4 w-4" />
+                <span>Teams</span>
+              </Link>
             </nav>
           </CollapsibleContent>
         </Collapsible>
