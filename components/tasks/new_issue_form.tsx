@@ -30,6 +30,7 @@ export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
     description: "",
     priority: "",
     assignee: "",
+    status: "todo",
   });
 
   const createIssue = () => {
