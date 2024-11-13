@@ -10,6 +10,10 @@ import {
 } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogOverlay, DialogTitle} from '@/components/ui/dialog';
 import { Label } from "../ui/label";
+import { useDispatch } from "react-redux";
+import Task from "@/models/tasks";
+import { useState } from "react";
+import { addTask } from "@/store/slices/tasksSlice";
 
 interface NewIssueFormProps {
   isOpen: boolean;
@@ -20,6 +24,18 @@ export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
   const onClose = (open: boolean) => {
     setIsOpen(open);
   };
+  const dispatch = useDispatch();
+  const [currentTask, setCurrentTask] = useState<Task>({
+    title: "",
+    description: "",
+    priority: "",
+    assignee: "",
+  });
+
+  const createIssue = () => {
+    setIsOpen(false)
+    dispatch(addTask(currentTask))
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -73,7 +89,7 @@ export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={() => setIsOpen(false)}>
+          <Button type="submit" onClick={() => createIssue()}>
             Create Issue
           </Button>
         </DialogFooter>

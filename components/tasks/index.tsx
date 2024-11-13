@@ -7,7 +7,6 @@ import { exampleTasks } from '@/example_data/data_tasks';
 
 export default function Tasks() {
   const listTasks = useSelector((state: { tasks: { listTasks: Task[] } }) => state.tasks.listTasks);
-  const dispatch = useDispatch();
 
   return (
     <div>
@@ -22,7 +21,6 @@ export default function Tasks() {
           </div>
         ))}
       </ul>
-      <button onClick={() => dispatch(addTask(exampleTasks[0]))}>Increment</button>
     </div>
   )
 }
