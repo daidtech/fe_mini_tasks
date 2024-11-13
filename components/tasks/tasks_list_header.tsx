@@ -11,7 +11,7 @@ import {
 
 export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: (filter: string) => void }) {
   return (
-    <header className="border-b">
+    <header>
       <div className="flex items-center px-4 h-14">
         <nav className="flex items-center space-x-4">
           <Button variant="ghost" className="text-sm font-medium">

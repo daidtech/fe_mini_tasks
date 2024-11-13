@@ -12,10 +12,10 @@ const TaskList = ({ tasks }: {tasks: Task[]}) => (
       if (filteredTasks.length === 0) return null;
 
       return (
-        <div key={status} className="py-4">
-          <div className="flex items-center text-sm text-muted-foreground mb-2">
-            <span className="font-medium capitalize">{status.replace('-', ' ')}</span>
-            <span className="ml-2">{filteredTasks.length}</span>
+        <div key={status}>
+            <div className="flex items-center text-sm text-muted-foreground bg-gray-200 mx-[-36] px-8 py-1">
+            <span className="font-medium capitalize px-2 py-1 rounded">{status.replace('-', ' ')}</span>
+            <span className="font-medium ml-2">{filteredTasks.length}</span>
           </div>
           <div className="space-y-1">
             {filteredTasks.map((task) => (

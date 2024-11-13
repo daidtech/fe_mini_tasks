@@ -26,12 +26,10 @@ export default function TaskListItem({ task }: { task: Task }) {
   return (
     <div
       key={task.id}
-      className={`flex items-center p-2 rounded-lg group cursor-pointer ${
-        task.status === "in-progress" ? "bg-blue-50 hover:bg-blue-100" : "hover:bg-muted"
-      }`}
+      className={`flex items-center p-2 rounded-lg group cursor-pointer`}
     >
       <Select defaultValue={task.status}>
-        <SelectTrigger className="w-6 h-6 border-0 p-0 mr-3">
+        <SelectTrigger className="w-8 h-8 border-0 p-0 mr-3">
           <SelectValue>
             {task.status === "in-progress" ? "⏳" : task.status === "done" ? "✅" : "⭕"}
           </SelectValue>
