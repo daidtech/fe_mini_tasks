@@ -6,7 +6,7 @@ interface Task {
   assignee: string;
   status: 'todo' | 'in-progress' | 'done' | 'backlog';
   startDate?: string;
-  endDate: string;
+  endDate?: string;
 }
 
 export default Task;

@@ -26,11 +26,12 @@ export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
   };
   const dispatch = useDispatch();
   const [currentTask, ] = useState<Task>({
+    id: "",
     title: "",
     description: "",
     priority: "",
     assignee: "",
-    status: "todo",
+    status: "todo"
   });
 
   const createIssue = () => {
