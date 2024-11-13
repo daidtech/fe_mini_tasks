@@ -21,7 +21,7 @@ export default function MiniSidebarContent(){
           </Link>
         </nav>
 
-        <Collapsible>
+        <Collapsible defaultOpen>
           <CollapsibleTrigger className="flex w-full items-center justify-between py-2 text-sm font-medium">
             <span>Workspace</span>
             <ChevronDown className="h-4 w-4" />
@@ -29,16 +29,16 @@ export default function MiniSidebarContent(){
           <CollapsibleContent>
             <nav className="ml-4 space-y-2">
               <a href="#projects" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                <Layers className="h-4 w-4" />
-                <span>Projects</span>
+          <Layers className="h-4 w-4" />
+          <span>Projects</span>
               </a>
               <a href="#views" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                <LayoutGrid className="h-4 w-4" />
-                <span>Views</span>
+          <LayoutGrid className="h-4 w-4" />
+          <span>Views</span>
               </a>
               <a href="#teams" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                <Users className="h-4 w-4" />
-                <span>Teams</span>
+          <Users className="h-4 w-4" />
+          <span>Teams</span>
               </a>
             </nav>
           </CollapsibleContent>
@@ -80,30 +80,6 @@ export default function MiniSidebarContent(){
                 </nav>
               </CollapsibleContent>
             </Collapsible>
-          </CollapsibleContent>
-        </Collapsible>
-
-
-        <Collapsible>
-          <CollapsibleTrigger className="flex w-full items-center justify-between py-2 text-sm font-medium">
-            <span>Try</span>
-            <ChevronDown className="h-4 w-4" />
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <nav className="ml-4 space-y-2">
-              <a href="#import" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                <Layers className="h-4 w-4" />
-                <span>Import issues</span>
-              </a>
-              <a href="#invite" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                <Plus className="h-4 w-4" />
-                <span>Invite people</span>
-              </a>
-              <a href="#github" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                <Github className="h-4 w-4" />
-                <span>Link GitHub</span>
-              </a>
-            </nav>
           </CollapsibleContent>
         </Collapsible>
       </div>
