@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import { useSelector } from "react-redux"
 import Task from "@/models/tasks"
 import TasksListHeader from "./tasks_list_header"
 import TaskListItem from "./tasks_list_item"
+import { selectTasks } from "@/store/slices/tasksSlice"
 
 const TaskList = ({ tasks }: {tasks: Task[]}) => (
   <main className="px-4">
@@ -30,49 +32,7 @@ const TaskList = ({ tasks }: {tasks: Task[]}) => (
 
 export default function TaskListComponent() {
   const [, setActiveFilter] = useState("all")
-
-  const tasks: Task[] = [
-    {
-      id: "MIN-1",
-      title: "Welcome to Linear 👋",
-      status: "in-progress",
-      startDate: "Nov 9",
-      endDate: "Nov 9",
-      assignee: "JD",
-      description: "",
-      priority: ""
-    },
-    {
-      id: "MIN-2",
-      title: "3 ways to navigate Linear: Command menu, keyboard or mouse",
-      status: "todo",
-      startDate: "Nov 9",
-      endDate: "Nov 9",
-      assignee: "AS",
-      description: "",
-      priority: ""
-    },
-    {
-      id: "MIN-5",
-      title: "Customize settings",
-      status: "todo",
-      startDate: "Nov 9",
-      endDate: "Nov 9",
-      assignee: "TK",
-      description: "",
-      priority: ""
-    },
-    {
-      id: "MIN-9",
-      title: "Next steps",
-      status: "done",
-      startDate: "Nov 9",
-      endDate: "Nov 9",
-      assignee: "JD",
-      description: "",
-      priority: ""
-    },
-  ]
+  const tasks = useSelector(selectTasks)
 
   return (
     <div className="w-full max-full mx-auto">

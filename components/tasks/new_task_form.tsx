@@ -8,11 +8,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogOverlay, DialogTitle} from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from '@/components/ui/dialog';
 import { Label } from "../ui/label";
 import { useDispatch } from "react-redux";
 import Task from "@/models/tasks";
-import { useState } from "react";
+import { useFormik } from 'formik';
 import { addTask } from "@/store/slices/tasksSlice";
 
 interface NewIssueFormProps {
@@ -25,19 +25,27 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
     setIsOpen(open);
   };
   const dispatch = useDispatch();
-  const [currentTask, ] = useState<Task>({
-    id: "",
-    title: "",
-    description: "",
-    priority: "",
-    assignee: "",
-    status: "todo"
-  });
 
-  const createIssue = () => {
-    setIsOpen(false)
-    dispatch(addTask(currentTask))
-  }
+  const formik = useFormik({
+    initialValues: {
+      title: '',
+      description: '',
+      priority: '',
+      assignee: '',
+    },
+    onSubmit: (values) => {
+      const newTask: Task = {
+        id: "",
+        title: values.title,
+        description: values.description,
+        priority: values.priority,
+        assignee: values.assignee,
+        status: "todo"
+      };
+      dispatch(addTask(newTask));
+      setIsOpen(false);
+    },
+  });
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -45,55 +53,75 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
         <DialogHeader>
           <DialogTitle>New task</DialogTitle>
         </DialogHeader>
-        <div className="space-y-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="title" className="text-right">
-              Title
-            </Label>
-            <Input id="title" className="col-span-3" />
+        <form onSubmit={formik.handleSubmit}>
+          <div className="space-y-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="title" className="text-right">
+                Title
+              </Label>
+              <Input
+                id="title"
+                name="title"
+                className="col-span-3"
+                onChange={formik.handleChange}
+                value={formik.values.title}
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="description" className="text-right">
+                Description
+              </Label>
+              <Textarea
+                id="description"
+                name="description"
+                className="col-span-3"
+                onChange={formik.handleChange}
+                value={formik.values.description}
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="priority" className="text-right">
+                Priority
+              </Label>
+              <Select
+                name="priority"
+                onValueChange={(value) => formik.setFieldValue('priority', value)}
+              >
+                <SelectTrigger className="col-span-3">
+                  <SelectValue placeholder="Select priority" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="assignee" className="text-right">
+                Assignee
+              </Label>
+              <Select
+                name="assignee"
+                onValueChange={(value) => formik.setFieldValue('assignee', value)}
+              >
+                <SelectTrigger className="col-span-3">
+                  <SelectValue placeholder="Assign to" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="john">John Doe</SelectItem>
+                  <SelectItem value="jane">Jane Smith</SelectItem>
+                  <SelectItem value="bob">Bob Johnson</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="description" className="text-right">
-              Description
-            </Label>
-            <Textarea id="description" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="priority" className="text-right">
-            Priority
-          </Label>
-          <Select>
-            <SelectTrigger className="col-span-3">
-              <SelectValue placeholder="Select priority" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="low">Low</SelectItem>
-              <SelectItem value="medium">Medium</SelectItem>
-              <SelectItem value="high">High</SelectItem>
-            </SelectContent>
-          </Select>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="assignee" className="text-right">
-              Assignee
-            </Label>
-            <Select>
-              <SelectTrigger className="col-span-3">
-                <SelectValue placeholder="Assign to" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="john">John Doe</SelectItem>
-                <SelectItem value="jane">Jane Smith</SelectItem>
-                <SelectItem value="bob">Bob Johnson</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit" onClick={() => createIssue()}>
-            Create Issue
-          </Button>
-        </DialogFooter>
+          <DialogFooter>
+            <Button type="submit">
+              Create Issue
+            </Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )
