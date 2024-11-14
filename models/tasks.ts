@@ -12,8 +12,9 @@ interface Task {
   priority: string;
   assignee: string;
   status: TaskStatus;
-  startDate?: string;
-  endDate?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  dueDate?: Date;
 }
 
 export {
