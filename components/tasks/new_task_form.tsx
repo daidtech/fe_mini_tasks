@@ -11,7 +11,7 @@ import {
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from '@/components/ui/dialog';
 import { Label } from "../ui/label";
 import { useDispatch } from "react-redux";
-import Task from "@/models/tasks";
+import Task, { TaskStatus } from "@/models/tasks";
 import { useFormik } from 'formik';
 import { addTask } from "@/store/slices/tasksSlice";
 
@@ -32,6 +32,7 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
       description: '',
       priority: '',
       assignee: '',
+      status: 'todo' as TaskStatus,
     },
     onSubmit: (values) => {
       const newTask: Task = {
@@ -40,7 +41,7 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
         description: values.description,
         priority: values.priority,
         assignee: values.assignee,
-        status: "todo"
+        status: values.status,
       };
       dispatch(addTask(newTask));
       setIsOpen(false);
@@ -112,6 +113,26 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
                   <SelectItem value="john">John Doe</SelectItem>
                   <SelectItem value="jane">Jane Smith</SelectItem>
                   <SelectItem value="bob">Bob Johnson</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="status" className="text-right">
+                Status
+              </Label>
+              <Select
+                name="status"
+                onValueChange={(value) => formik.setFieldValue('status', value)}
+              >
+                <SelectTrigger className="col-span-3">
+                  <SelectValue placeholder="Select status" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.values(TaskStatus).map((status) => (
+                    <SelectItem key={status} value={status}>
+                      {status.charAt(0).toUpperCase() + status.slice(1).replace('-', ' ')}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
