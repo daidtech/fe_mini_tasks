@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import Task, { TaskStatus } from "@/models/tasks";
 import { useFormik } from 'formik';
 import { addTask } from "@/store/slices/tasksSlice";
+import { DatePicker } from "../mini_ui/datepicker";
 
 interface NewIssueFormProps {
   isOpen: boolean;
@@ -25,6 +26,8 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
     setIsOpen(open);
   };
   const dispatch = useDispatch();
+  const teamMembers = ['John Doe', 'Jane Smith', 'Bob Johnson', 'Bob Doe'];
+  const priorities = ['Low', 'Medium', 'High'];
 
   const formik = useFormik({
     initialValues: {
@@ -33,6 +36,7 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
       priority: '',
       assignee: '',
       status: 'todo' as TaskStatus,
+      dueDate: '',
     },
     onSubmit: (values) => {
       const newTask: Task = {
@@ -92,9 +96,11 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
                   <SelectValue placeholder="Select priority" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="low">Low</SelectItem>
-                  <SelectItem value="medium">Medium</SelectItem>
-                  <SelectItem value="high">High</SelectItem>
+                  {priorities.map((priority) => (
+                    <SelectItem key={priority} value={priority}>
+                      {priority.charAt(0).toUpperCase() + priority.slice(1)}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -110,9 +116,11 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
                   <SelectValue placeholder="Assign to" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="john">John Doe</SelectItem>
-                  <SelectItem value="jane">Jane Smith</SelectItem>
-                  <SelectItem value="bob">Bob Johnson</SelectItem>
+                    {teamMembers.map((assignee) => (
+                    <SelectItem key={assignee} value={assignee.toLowerCase().replace(' ', '-')}>
+                      {assignee}
+                    </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
@@ -135,6 +143,12 @@ export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="status" className="text-right">
+                Due Date
+              </Label>
+              <DatePicker />
             </div>
           </div>
           <DialogFooter>

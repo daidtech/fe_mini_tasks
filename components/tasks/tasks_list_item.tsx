@@ -48,7 +48,7 @@ export default function TaskListItem({ task }: { task: Task }) {
       </div>
       <div className="flex items-center space-x-4">
         <span className="text-sm text-muted-foreground">
-          {task.startDate} - {task.endDate}
+            {task.updatedAt ? new Date(task.updatedAt).toLocaleDateString() : "Undefine"} - {task.createdAt ? new Date(task.createdAt).toLocaleDateString() : "Undefine"}
         </span>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
