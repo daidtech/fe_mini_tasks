@@ -13,7 +13,7 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
   return (
     <header>
       <div className="flex items-center px-4 h-14">
-        <nav className="flex items-center space-x-4">
+        <nav className="flex items-center">
           <Button variant="ghost" className="text-sm font-medium">
             All Issues
           </Button>
@@ -33,7 +33,7 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm">
-              <Filter className="w-4 h-4 mr-2" />
+              <Filter className="w-4 h-4 mr-1" />
               Filter
             </Button>
           </DropdownMenuTrigger>
@@ -43,11 +43,11 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
             <DropdownMenuItem onSelect={() => setActiveFilter("backlog")}>Backlog</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="ml-auto flex items-center space-x-4">
+        <div className="ml-auto flex items-center space-x-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm">
-                <SlidersHorizontal className="w-4 h-4 mr-2" />
+                <SlidersHorizontal className="w-4 h-4 mr-1" />
                 Display
               </Button>
             </DropdownMenuTrigger>
