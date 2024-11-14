@@ -16,7 +16,7 @@ import {
 
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import NewIssueForm from '@/components/tasks/new_issue_form';
+import NewTaskForm from '@/components/tasks/new_task_form';
 
 export default function MiniSidebarHeader() {
 
@@ -55,7 +55,7 @@ export default function MiniSidebarHeader() {
           <span className="sr-only">Notifications</span>
         </Button>
       </div>
-      <NewIssueForm isOpen={isOpen} setIsOpen={setIsOpen} />
+      <NewTaskForm isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
   )
 }

@@ -15,7 +15,7 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
       <div className="flex items-center px-4 h-14">
         <nav className="flex items-center">
           <Button variant="ghost" className="text-sm font-medium">
-            All Issues
+            All Tasks
           </Button>
           <Button variant="ghost" className="text-sm font-medium">
             Active
@@ -38,8 +38,8 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-48">
-            <DropdownMenuItem onSelect={() => setActiveFilter("all")}>All Issues</DropdownMenuItem>
-            <DropdownMenuItem onSelect={() => setActiveFilter("active")}>Active Issues</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setActiveFilter("all")}>All Tasks</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setActiveFilter("active")}>Active Tasks</DropdownMenuItem>
             <DropdownMenuItem onSelect={() => setActiveFilter("backlog")}>Backlog</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -52,8 +52,8 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
-              <DropdownMenuItem onSelect={() => setActiveFilter("all")}>All Issues</DropdownMenuItem>
-              <DropdownMenuItem onSelect={() => setActiveFilter("active")}>Active Issues</DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setActiveFilter("all")}>All Tasks</DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setActiveFilter("active")}>Active Tasks</DropdownMenuItem>
               <DropdownMenuItem onSelect={() => setActiveFilter("backlog")}>Backlog</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

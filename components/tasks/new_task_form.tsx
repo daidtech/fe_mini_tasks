@@ -20,7 +20,7 @@ interface NewIssueFormProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
+export default function NewTaskForm({ isOpen, setIsOpen }: NewIssueFormProps) {
   const onClose = (open: boolean) => {
     setIsOpen(open);
   };
@@ -41,10 +41,9 @@ export default function NewIssueForm({ isOpen, setIsOpen }: NewIssueFormProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogOverlay className="bg-red-500 bg-opacity-0" /> {/* Transparent backdrop */}
       <DialogContent className="max-w-lg p-6 bg-white shadow-lg rounded-md" >
         <DialogHeader>
-          <DialogTitle>New issue</DialogTitle>
+          <DialogTitle>New task</DialogTitle>
         </DialogHeader>
         <div className="space-y-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">

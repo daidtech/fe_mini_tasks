@@ -15,9 +15,9 @@ export default function MiniSidebarContent(){
             <Inbox className="h-4 w-4" />
             <span>Inbox</span>
           </Link>
-          <Link href="/my-issues" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
+          <Link href="/my-tasks" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent">
             <Layers className="h-4 w-4" />
-            <span>My issues</span>
+            <span>My tasks</span>
           </Link>
         </nav>
 
@@ -65,17 +65,17 @@ export default function MiniSidebarContent(){
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <nav className="ml-4 space-y-2">
-                  <a href="#issue" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                  <Layers className="h-4 w-4" />
-                  <span>Issue</span>
-                      </a>
-                      <a href="#project" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                  <LayoutGrid className="h-4 w-4" />
-                  <span>Project</span>
-                      </a>
-                      <a href="#views" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
-                  <Users className="h-4 w-4" />
-                  <span>Views</span>
+                  <a href="#tasks" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
+                    <Layers className="h-4 w-4" />
+                    <span>Tasks</span>
+                  </a>
+                  <a href="#project" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
+                    <LayoutGrid className="h-4 w-4" />
+                    <span>Project</span>
+                  </a>
+                  <a href="#views" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-accent">
+                    <Users className="h-4 w-4" />
+                    <span>Views</span>
                   </a>
                 </nav>
               </CollapsibleContent>
