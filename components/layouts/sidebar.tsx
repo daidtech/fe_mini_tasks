@@ -29,7 +29,7 @@ export default function Sidebar() {
   return (
     <aside
       style={{ width: sidebarWidth }}
-      className="sidebar relative border bg-gray-200 min-w-[200px] h-full px-3 pt-3">
+      className="sidebar relative border bg-gray-200 min-w-[200px] h-full ps-3 pt-3 hidden sm:block">
       <MiniSidebarContent />
       {/* Resize handle */}
       <div
