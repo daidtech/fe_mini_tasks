@@ -33,7 +33,7 @@ export default function Sidebar() {
       <MiniSidebarContent />
       {/* Resize handle */}
       <div
-        className="absolute right-0 top-0 h-full w-[2px] bg-red-200 cursor-ew-resize bg-transparent transition-colors hover:bg-border group-hover/sidebar:bg-border/40"
+        className="absolute -right-3 top-0 h-full w-[2px] bg-red-200 cursor-ew-resize bg-transparent transition-colors hover:bg-border group-hover/sidebar:bg-border/40"
         onMouseDown={handleMouseDown}
       />
     </aside>

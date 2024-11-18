@@ -5,7 +5,7 @@ export default function MainContent({
 }>) {
   return (
     <main className="main-content w-full h-full bg-gray-200">
-      <div className="my-3 me-3 rounded bg-white h-[calc(100vh-2rem)] border border-gray-300">
+      <div className="m-0 sm:m-3 rounded bg-white w-full h-full sm:w-[calc(100%-1.5rem)] sm:h-[calc(100%-1.5rem)] border border-gray-300">
         {children}
       </div>
     </main>
