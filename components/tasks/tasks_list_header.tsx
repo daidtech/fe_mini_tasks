@@ -14,7 +14,7 @@ export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: 
     <header className='w-full'>
       <div className="flex items-center h-14">
         <nav className="flex items-center">
-          <Button variant="ghost" className="hidden lg:block text-sm font-medium hidden sm:inline-flex">
+          <Button variant="ghost" className="hidden max-lg:block text-sm font-medium">
             <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
           </Button>
           <Button variant="ghost" className="text-sm font-medium">
