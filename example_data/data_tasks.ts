@@ -1,4 +1,4 @@
-import Task from "@/models/tasks";
+import Task, {TaskStatus} from "@/models/tasks";
 
 const exampleTasks: Task[] = [
   {
@@ -7,7 +7,7 @@ const exampleTasks: Task[] = [
     priority: 'High',
     assignee: 'John Doe',
     id: "",
-    status: "in-progress"
+    status: TaskStatus.InProgress
   },
   {
     title: 'Task 2',
@@ -15,7 +15,7 @@ const exampleTasks: Task[] = [
     priority: 'Medium',
     assignee: 'Jane Smith',
     id: "",
-    status: "in-progress"
+    status: TaskStatus.InProgress
   },
   {
     title: 'Task 3',
@@ -23,7 +23,7 @@ const exampleTasks: Task[] = [
     priority: 'Low',
     assignee: 'Alice Johnson',
     id: "",
-    status: "in-progress"
+    status: TaskStatus.InProgress
   },
 ];
 
