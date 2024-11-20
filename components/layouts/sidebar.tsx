@@ -1,9 +1,15 @@
 'use client';
 import { useState } from "react";
 import MiniSidebarContent from "./mini_sidebar_content";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectHiddenSidebar, setHidden } from "@/store/slices/sidebarSlice";
 
 export default function Sidebar() {
-  const [sidebarWidth, setSidebarWidth] = useState(200); // Initial width
+  const [sidebarWidth, setSidebarWidth] = useState(250); // Initial width
+  const isHiddenSidebar = useSelector(selectHiddenSidebar)
+  const dispatch = useDispatch();
+
+  const limitHidden = 50
   const minWidth = 200;
   const maxWidth = 500;
 
@@ -15,6 +21,7 @@ export default function Sidebar() {
       if (newWidth >= minWidth && newWidth <= maxWidth) {
         setSidebarWidth(newWidth);
       }
+      dispatch(setHidden(newWidth < limitHidden));
     };
 
     const handleMouseUp = () => {
@@ -28,8 +35,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      style={{ width: sidebarWidth }}
-      className="sidebar relative border bg-gray-200 min-w-[200px] h-full ps-3 pt-3 hidden lg:block">
+      style={{ width: sidebarWidth, display: isHiddenSidebar ? 'none' : '' }}
+      className="sidebar relative border bg-gray-200 h-full ps-3 pt-3 hidden lg:block">
       <MiniSidebarContent />
       {/* Resize handle */}
       <div

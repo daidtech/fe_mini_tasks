@@ -8,13 +8,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useSelector } from 'react-redux'
+import { selectHiddenSidebar } from '@/store/slices/sidebarSlice'
 
 export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: (filter: string) => void }) {
+  const isHiddenSidebar = useSelector(selectHiddenSidebar)
+
   return (
     <header className='w-full'>
       <div className="flex items-center h-14">
         <nav className="flex items-center">
-          <Button variant="ghost" className="hidden max-lg:block text-sm font-medium">
+          <Button
+            style={{ display: isHiddenSidebar ? 'block' : '' }}
+            variant="ghost"
+            className={"hidden max-lg:block text-sm font-medium "}
+          >
             <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
           </Button>
           <Button variant="ghost" className="text-sm font-medium">

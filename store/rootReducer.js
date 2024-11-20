@@ -1,10 +1,10 @@
 // src/store/rootReducer.js
 import { combineReducers } from 'redux';
-import counterReducer from './slices/counterSlice';
+import sidebarReducer from './slices/sidebarSlice';
 import tasksReducer from './slices/tasksSlice';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+  sidebar: sidebarReducer,
   tasks: tasksReducer,
 });
 
