@@ -1,6 +1,5 @@
 "use client"
-
-import { Bell, SlidersHorizontal, Filter, LayoutGrid, PanelLeftDashed } from 'lucide-react'
+import { Bell, SlidersHorizontal, Filter, LayoutGrid } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -8,23 +7,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useSelector } from 'react-redux'
-import { selectHiddenSidebar } from '@/store/slices/sidebarSlice'
+import SidebarButton from '@/components/mini_ui/sidebar_button'
 
 export default function TasksListHeader({ setActiveFilter }: { setActiveFilter: (filter: string) => void }) {
-  const isHiddenSidebar = useSelector(selectHiddenSidebar)
-
   return (
     <header className='w-full'>
       <div className="flex items-center h-14">
         <nav className="flex items-center">
-          <Button
-            style={{ display: isHiddenSidebar ? 'block' : '' }}
-            variant="ghost"
-            className={"hidden max-lg:block text-sm font-medium "}
-          >
-            <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
-          </Button>
+          <SidebarButton />
           <Button variant="ghost" className="text-sm font-medium">
             All Tasks
           </Button>
