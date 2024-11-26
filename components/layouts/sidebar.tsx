@@ -3,6 +3,7 @@ import { useState } from "react";
 import MiniSidebarContent from "./mini_sidebar_content";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectHiddenSidebar, setHidden } from "@/store/slices/sidebarSlice";
+import SidebarDialog from "@/components/mini_ui/sidebar_dialog";
 
 export default function Sidebar() {
   const [sidebarWidth, setSidebarWidth] = useState(250); // Initial width
