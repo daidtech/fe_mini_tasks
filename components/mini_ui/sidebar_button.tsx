@@ -1,6 +1,6 @@
 import { PanelLeftDashed } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectHiddenSidebar, setHidden } from '@/store/slices/sidebarSlice'
+import { selectHiddenSidebar, setHidden, toggleSidebar } from '@/store/slices/sidebarSlice'
 import { Button } from '@/components/ui/button'
 
 export default function SidebarButton() {
@@ -8,13 +8,22 @@ export default function SidebarButton() {
   const dispatch = useDispatch()
 
   return (
-    <Button
-      style={{ display: isHiddenSidebar ? 'block' : '' }}
-      variant="ghost"
-      className={"hidden max-lg:block text-sm font-medium "}
-      onClick={() => dispatch(setHidden(false))}
-      >
-      <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
-    </Button>
+    <>
+      <Button
+        style={{ display: isHiddenSidebar ? 'block' : '' }}
+        variant="ghost"
+        className={"hidden max-lg:block text-sm font-medium"}
+        onClick={() => dispatch(setHidden(false))}
+        >
+        <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
+      </Button>
+      <Button
+        variant="ghost"
+        className={"block max-lg:hidden text-sm font-medium"}
+        onClick={() => dispatch(toggleSidebar(false))}
+        >
+        <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
+      </Button>
+    </>
   )
 }
