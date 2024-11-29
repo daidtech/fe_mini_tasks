@@ -12,14 +12,14 @@ export default function SidebarButton() {
       <Button
         style={{ display: isHiddenSidebar ? 'block' : '' }}
         variant="ghost"
-        className={"hidden max-lg:block text-sm font-medium"}
+        className={"hidden text-sm font-medium"}
         onClick={() => dispatch(setHidden(false))}
         >
         <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />
       </Button>
       <Button
         variant="ghost"
-        className={"block max-lg:hidden text-sm font-medium"}
+        className={"hidden max-lg:block text-sm font-medium"}
         onClick={() => dispatch(toggleSidebar(false))}
         >
         <PanelLeftDashed className="w-5 h-5 text-muted-foreground" />

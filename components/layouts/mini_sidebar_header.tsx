@@ -23,7 +23,7 @@ export default function MiniSidebarHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="h-14 items-center gap-2 border-b">
+    <header className="h-14 items-center gap-2">
       <div className="flex items-center gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
